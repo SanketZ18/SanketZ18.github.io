@@ -116,14 +116,7 @@ html, body {
   color: #c5c6c7;
 }
 
-body {
-  background-image: radial-gradient(
-    600px circle at var(--mouse-x, 50vw) var(--mouse-y, 50vh),
-    rgba(255, 189, 57, 0.15),
-    transparent 40%
-  );
-  background-attachment: fixed;
-}
+
 
 /* Updated Glass Card */
 .glass-card {
@@ -190,8 +183,8 @@ body {
 	       <div class="slider-item ">
 	      	<div class="overlay"></div>
 	         <div class="container-fluid px-md-5">
-	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="col-lg-5 col-md-6 order-md-last img" style="background-image:url(images/m2.jpg); background-size: cover; background-position: center; border-radius: 20px; min-height: 400px; margin-top: 30px;">
+	          <div class="row d-md-flex no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
+	          	<div class="col-lg-5 col-md-6 order-md-last img" style="background-image:url(images/m2.jpg); background-size: cover; background-position: top center; border-radius: 20px; min-height: 550px;">
 	          	 <div class="overlay"></div>
 	          	</div>
 		          <div class="col-lg-7 col-md-6 d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
@@ -562,11 +555,6 @@ body {
     });
   </script>
     
-  <script>
-    document.addEventListener("mousemove", e => {
-      document.body.style.setProperty("--mouse-x", `${e.clientX}px`);
-      document.body.style.setProperty("--mouse-y", `${e.clientY}px`);
-    });
-  </script>
+
   </body>
 </html>
