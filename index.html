@@ -110,10 +110,38 @@
 }
 
 
-</style>
+/* Glassmorphism card effect */
+.glass-card {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  padding: 25px;
+  margin-bottom: 30px;
+  transform-style: preserve-3d;
+  color: #fff;
+}
 
-
-  </head>
+.glass-card h2, .glass-card h3 {
+  transform: translateZ(30px);
+  color: #ffbd39;
+}
+.glass-card p, .glass-card span {
+  transform: translateZ(20px);
+}
+.glass-card .date {
+  color: #ffbd39;
+  font-weight: 700;
+}
+.glass-card a {
+  color: #ffbd39;
+}
+.glass-card a:hover {
+  color: #fff;
+}
+</style>  </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 	  
 	  
@@ -134,8 +162,9 @@
 	      </div>
 	    </div>
 	  </nav>
-	  <section id="home-section" class="hero">
-		  <div class="home-slider  owl-carousel">
+	  <section id="home-section" class="hero" style="position: relative;">
+		  <div id="particles-js" style="position: absolute; width: 100%; height: 100%; z-index: 0;"></div>
+		  <div class="home-slider  owl-carousel" style="z-index: 1; position: relative;">
 	       <div class="slider-item ">
 	      	<div class="overlay"></div>
 	         <div class="container">
@@ -220,8 +249,8 @@
 									  <div class="about-info">
 										<p><span class="title-s">Name: </span> <span>Sanket Sanjay Zagade</span></p>
 										<p><span class="title-s">Birthdate: </span> <span>18 June 2004</span></p>
-										<p><span class="title-s">Experience: </span> <span>Fresher</span></p>
-										<p><span class="title-s">Address: </span> <span> Baramti Dist-Pune, Maharashtra, India(413115)</span></p>
+										<p><span class="title-s">Experience: </span> <span>Full Stack Developer Intern</span></p>
+										<p><span class="title-s">Address: </span> <span>A/P Baramti Dist-Pune, Maharashtra, India(413115)</span></p>
 									  </div>
 									</div>
 								  </div>
@@ -308,29 +337,55 @@
 		<br>
 
 		<div class="row">
-			<h1 class="big-4">Education</h1>
+			<h1 class="big-4">Experience & Education</h1>
 			<div class="underline"></div>
 		</div>
 		<br>
 		
 			<div class="row">
+				<div class="col-md-12">
+    				<div class="resume-wrap ftco-animate glass-card" data-tilt data-tilt-max="10" data-tilt-speed="400">
+    					<span class="date">Jan 2026 - Apr 2026</span>
+    					<h2>Full Stack Developer Intern</h2>
+    					<span class="position">VSpire Innovations, Sangli, Maharashtra (Remote)</span>
+    					<p class="mt-4">Engineered full-stack web applications, applied OOP principles, optimized code structure, and leveraged Git/GitHub.</p>
+    				</div>
+				</div>
     			<div class="col-md-6">
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">2021-2024</span>
-    					<h2>Bachelor of Computer Application</h2>
-    					<span class="position">Savitribai Phule Pune University</span>
-    					<p class="mt-4">Grade: First class distinction.</p>
+    				<div class="resume-wrap ftco-animate glass-card" data-tilt data-tilt-max="15" data-tilt-speed="400">
+    					<span class="date">Aug 2024 - May 2026</span>
+    					<h2>Master of Computer Applications (MCA)</h2>
+    					<span class="position">VIIT, Baramati, Savitribai Phule Pune University</span>
+    					<p class="mt-4">Grade: 77.9%</p>
     				</div>
     			</div>
 
     			<div class="col-md-6">
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">2019-2021</span>
-    					<h2>Higher Secondary School</h2>
-    					<span class="position">Shivager School & College Malegaon.</span>
-    					<p class="mt-4">Grade: First class distinction.</p>
+    				<div class="resume-wrap ftco-animate glass-card" data-tilt data-tilt-max="15" data-tilt-speed="400">
+    					<span class="date">Aug 2021 - May 2024</span>
+    					<h2>Bachelor of Business Administration (Computer Applications)</h2>
+    					<span class="position">SVPM's CCSCE, Savitribai Phule Pune University</span>
+    					<p class="mt-4">Grade: 80.75%</p>
     				</div>
 				</div>
+
+				<div class="col-md-6">
+    				<div class="resume-wrap ftco-animate glass-card" data-tilt data-tilt-max="15" data-tilt-speed="400">
+    					<span class="date">Jun 2020 - Mar 2021</span>
+    					<h2>Higher Secondary Certificate (HSC)</h2>
+    					<span class="position">SVPM, Malegaon, Baramati</span>
+    					<p class="mt-4">Grade: 68.83%</p>
+    				</div>
+    			</div>
+
+				<div class="col-md-6">
+    				<div class="resume-wrap ftco-animate glass-card" data-tilt data-tilt-max="15" data-tilt-speed="400">
+    					<span class="date">Jun 2018 - Mar 2019</span>
+    					<h2>Secondary School Certificate (SSC)</h2>
+    					<span class="position">SVPM, Malegaon, Baramati</span>
+    					<p class="mt-4">Grade: 61.80%</p>
+    				</div>
+    			</div>
     		</div>
 
     		<div class="row justify-content-center mt-5">
@@ -353,37 +408,25 @@
           </div>
         </div>
        <div class="row d-flex">
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <a href="" class="block-20 zoom-effect" style="background-image: url('images/p1.jpg');">
+          <div class="col-md-6 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end glass-card" data-tilt data-tilt-max="5" data-tilt-speed="400">
+              <a href="https://ecommerce-ayurkisan-website.vercel.app" class="block-20 zoom-effect" style="background-image: url('images/p1.jpg');">
               </a>
               <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="https://github.com/SanketZ18/SZ_LBMS">Digital Library Management System.</a></h3>
-				<p>Digital Library Membership & staff Management System using Java Programming Language & SQL.</p>
-
+                <h3 class="heading"><a href="https://ecommerce-ayurkisan-website.vercel.app">Ayurkisan E-Commerce Website</a></h3>
+				<p>Developed a full-stack platform for herbal products with user/admin modules. Backend with Spring Boot & MongoDB, Frontend with React.</p>
+				<p><strong>Technologies:</strong> Java (Spring Boot), React, MongoDB</p>
               </div>
             </div>
           </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry justify-content-end">
-              <a href="" class="block-20 zoom-effect" style="background-image: url('images/p2.jpg');">
+          <div class="col-md-6 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end glass-card" data-tilt data-tilt-max="5" data-tilt-speed="400">
+              <a href="https://uni-share-viit.vercel.app" class="block-20 zoom-effect" style="background-image: url('images/p2.jpg');">
               </a>
               <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="https://github.com/SanketZ18/GYM_Management_System"> Health Care Club Management System.</a></h3>
-                <p>Digital Health Care Club Membership & staff Management System using Java Programming Language & SQL.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 d-flex ftco-animate">
-          	<div class="blog-entry">
-              <a href="" class="block-20 zoom-effect" style="background-image: url('images/p3.jpg');">
-              </a>
-              <div class="text mt-3 float-right d-block">
-
-                <h3 class="heading"><a href="https://github.com/SanketZ18/SZ_Medical_Shop">Medical Shop Management System.</a></h3>
-                <p>Stored the Information about Customers and Records the Sales Bills using Java Programming Language & SQL.</p>
+                <h3 class="heading"><a href="https://uni-share-viit.vercel.app">UniShare – Smart Academic Resource Portal</a></h3>
+                <p>Developed a resource sharing platform for students/staff, fetching materials from SPPU website. Built with Spring Boot and React.</p>
+				<p><strong>Technologies:</strong> Java (Spring Boot), React</p>
               </div>
             </div>
           </div>
@@ -427,7 +470,7 @@
           			<span class="icon-paper-plane"></span>
           		</div>
           		<h3 class="mb-4">Email Address</h3>
-	            <p><a href="mailto:info@yoursite.com">sanketzagade0018@gamil.com</a></p>
+	            <p><a href="mailto:sanketzagade2004@gmail.com">sanketzagade2004@gmail.com</a></p>
 	          </div>
           </div>
           <div class="col-md-6 col-lg-3 d-flex ftco-animate">
@@ -479,6 +522,27 @@
   <script src="js/scrollax.min.js"></script>
   
   <script src="js/main.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5, "random": false },
+        "size": { "value": 3, "random": true },
+        "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+        "move": { "enable": true, "speed": 3, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+        "modes": { "repulse": { "distance": 100, "duration": 0.4 } }
+      },
+      "retina_detect": true
+    });
+  </script>
     
   </body>
 </html>
