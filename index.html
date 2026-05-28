@@ -116,48 +116,13 @@ html, body {
   color: #c5c6c7;
 }
 
-/* Timeline Styling */
-.timeline {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.timeline::after {
-  content: '';
-  position: absolute;
-  width: 4px;
-  background-color: #66fcf1;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -2px;
-}
-.timeline-item {
-  padding: 10px 40px;
-  position: relative;
-  background-color: inherit;
-  width: 50%;
-}
-.timeline-item::after {
-  content: '';
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  right: -10px;
-  background-color: #0b0c10;
-  border: 4px solid #66fcf1;
-  top: 15px;
-  border-radius: 50%;
-  z-index: 1;
-}
-.left-item { left: 0; }
-.right-item { left: 50%; }
-.right-item::after { left: -10px; }
-@media screen and (max-width: 767px) {
-  .timeline::after { left: 31px; }
-  .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
-  .timeline-item::after { left: 21px; }
-  .right-item { left: 0; }
+body {
+  background-image: radial-gradient(
+    600px circle at var(--mouse-x, 50vw) var(--mouse-y, 50vh),
+    rgba(255, 189, 57, 0.15),
+    transparent 40%
+  );
+  background-attachment: fixed;
 }
 
 /* Updated Glass Card */
@@ -166,32 +131,34 @@ html, body {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 12px;
-  border: 1px solid rgba(102, 252, 241, 0.2);
+  border: 1px solid rgba(255, 189, 57, 0.2);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
   padding: 25px;
   margin-bottom: 30px;
-  transform-style: preserve-3d;
   color: #c5c6c7;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.glass-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 40px 0 rgba(255, 189, 57, 0.3);
 }
 .glass-card h2, .glass-card h3 {
-  transform: translateZ(30px);
-  color: #66fcf1;
+  color: #ffbd39;
   font-size: 1.25rem;
   font-weight: 600;
 }
 .glass-card p, .glass-card span {
-  transform: translateZ(20px);
   font-size: 0.95rem;
 }
 .glass-card .date {
-  color: #45a29e;
+  color: #ffbd39;
   font-weight: 700;
   font-size: 0.85rem;
   margin-bottom: 10px;
   display: block;
 }
 .glass-card a {
-  color: #66fcf1;
+  color: #ffbd39;
 }
 .glass-card a:hover {
   color: #fff;
@@ -224,7 +191,7 @@ html, body {
 	      	<div class="overlay"></div>
 	         <div class="container-fluid px-md-5">
 	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="col-lg-5 col-md-6 order-md-last img" style="background-image:url(images/m2.jpg); background-size: cover; background-position: center; border-radius: 20px;">
+	          	<div class="col-lg-5 col-md-6 order-md-last img" style="background-image:url(images/m2.jpg); background-size: cover; background-position: center; border-radius: 20px; min-height: 400px; margin-top: 30px;">
 	          	 <div class="overlay"></div>
 	          	</div>
 		          <div class="col-lg-7 col-md-6 d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
@@ -573,7 +540,7 @@ html, body {
   <script src="js/scrollax.min.js"></script>
   
   <script src="js/main.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+  <!-- Removed vanilla-tilt script -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
     particlesJS("particles-js", {
@@ -595,5 +562,11 @@ html, body {
     });
   </script>
     
+  <script>
+    document.addEventListener("mousemove", e => {
+      document.body.style.setProperty("--mouse-x", `${e.clientX}px`);
+      document.body.style.setProperty("--mouse-y", `${e.clientY}px`);
+    });
+  </script>
   </body>
 </html>
