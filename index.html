@@ -424,87 +424,262 @@
 			margin-top: 4px;
 		}
 
+		/* === MODERN HERO IMAGE SECTION === */
 		.hero-img-wrap {
 			position: relative;
 			display: flex;
+			flex-direction: column;
 			align-items: center;
 			justify-content: center;
+			width: 100%;
+			max-width: 500px;
+			margin: 0 auto;
+			padding: 10px 10px 0;
 		}
 
-		.hero-img-bg {
+		/* Multi-layer Ambient Glows */
+		.hero-ambient-glow {
 			position: absolute;
-			width: 370px;
-			height: 370px;
-			background: var(--primary-light);
 			border-radius: 50%;
+			filter: blur(55px);
+			pointer-events: none;
 			z-index: 0;
 		}
 
-		.hero-img {
+		.hero-ambient-glow.glow-1 {
+			width: 320px;
+			height: 320px;
+			top: 5%;
+			right: 5%;
+			background: radial-gradient(circle, rgba(245, 166, 35, 0.42) 0%, rgba(245, 166, 35, 0.08) 65%, transparent 100%);
+			animation: glow-pulse-1 6s ease-in-out infinite alternate;
+		}
+
+		.hero-ambient-glow.glow-2 {
+			width: 290px;
+			height: 290px;
+			bottom: 5%;
+			left: 2%;
+			background: radial-gradient(circle, rgba(251, 191, 36, 0.35) 0%, rgba(254, 233, 196, 0.1) 70%, transparent 100%);
+			animation: glow-pulse-2 7s ease-in-out infinite alternate;
+		}
+
+		@keyframes glow-pulse-1 {
+			0% {
+				transform: scale(1) translate(0, 0);
+				opacity: 0.65;
+			}
+
+			100% {
+				transform: scale(1.15) translate(-10px, 12px);
+				opacity: 0.9;
+			}
+		}
+
+		@keyframes glow-pulse-2 {
+			0% {
+				transform: scale(1) translate(0, 0);
+				opacity: 0.6;
+			}
+
+			100% {
+				transform: scale(1.18) translate(12px, -10px);
+				opacity: 0.85;
+			}
+		}
+
+		/* High-tech Orbit Ring with Glowing Satellite */
+		.hero-orbit-ring {
+			position: absolute;
+			width: 430px;
+			height: 430px;
+			border: 1.5px dashed rgba(245, 166, 35, 0.3);
+			border-radius: 50%;
+			z-index: 0;
+			pointer-events: none;
+			animation: rotate-orbit 38s linear infinite;
+		}
+
+		.orbit-satellite {
+			position: absolute;
+			top: -5px;
+			left: 50%;
+			width: 10px;
+			height: 10px;
+			margin-left: -5px;
+			background: var(--primary);
+			border-radius: 50%;
+			box-shadow: 0 0 14px var(--primary);
+		}
+
+		@keyframes rotate-orbit {
+			from {
+				transform: rotate(0deg);
+			}
+
+			to {
+				transform: rotate(360deg);
+			}
+		}
+
+		/* Decorative Corner Dots Matrix */
+		.hero-decor-dots {
+			position: absolute;
+			bottom: 8px;
+			right: 8px;
+			width: 90px;
+			height: 90px;
+			background-image: radial-gradient(rgba(245, 166, 35, 0.5) 1.5px, transparent 1.5px);
+			background-size: 14px 14px;
+			opacity: 0.55;
+			z-index: 0;
+			pointer-events: none;
+		}
+
+		/* Main Frame Card */
+		.hero-card-frame {
 			position: relative;
 			z-index: 1;
+			border-radius: 36px 36px 44px 44px;
+			padding: 7px;
+			background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(245, 166, 35, 0.42) 48%, rgba(255, 255, 255, 0.85) 100%);
+			box-shadow:
+				0 24px 50px -10px rgba(245, 166, 35, 0.28),
+				0 12px 30px -6px rgba(26, 26, 46, 0.1),
+				inset 0 1px 2px rgba(255, 255, 255, 0.9);
+			transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+		}
+
+		.hero-card-frame:hover {
+			transform: translateY(-4px);
+			box-shadow:
+				0 32px 64px -10px rgba(245, 166, 35, 0.36),
+				0 16px 36px -6px rgba(26, 26, 46, 0.14),
+				inset 0 1px 2px rgba(255, 255, 255, 1);
+		}
+
+		.hero-card-inner {
+			position: relative;
 			width: 340px;
-			height: 400px;
+			height: 420px;
+			border-radius: 30px 30px 38px 38px;
+			overflow: hidden;
+			background: #ffffff;
+		}
+
+		.hero-card-img {
+			width: 100%;
+			height: 100%;
 			object-fit: cover;
-			object-position: center 8%;
-			border-radius: 30% 70% 70% 30% / 40% 40% 60% 60%;
-			border: 5px solid #fff;
-			box-shadow: var(--shadow-lg);
-			transition: border-radius 0.7s ease;
+			object-position: center 10%;
+			display: block;
+			transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 		}
 
-		.hero-img:hover {
-			border-radius: 50% 30% 50% 30% / 30% 50% 50% 70%;
+		.hero-card-frame:hover .hero-card-img {
+			transform: scale(1.04);
 		}
 
-		.hero-float-badge {
-			position: absolute;
-			background: #fff;
-			border-radius: 14px;
-			box-shadow: var(--shadow-md);
-			padding: 12px 18px;
+		/* === 3 INFO BOXES IN SINGLE ROW UNDER IMAGE === */
+		.hero-info-row {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 12px;
+			width: 100%;
+			max-width: 490px;
+			margin-top: 20px;
+			z-index: 2;
+			position: relative;
+		}
+
+		.hero-info-box {
+			background: rgba(255, 255, 255, 0.94);
+			backdrop-filter: blur(16px);
+			-webkit-backdrop-filter: blur(16px);
+			border: 1px solid rgba(255, 255, 255, 0.95);
+			border-radius: 16px;
+			padding: 10px 12px;
 			display: flex;
 			align-items: center;
 			gap: 10px;
-			font-weight: 600;
-			font-size: 0.82rem;
-			color: var(--text-dark);
-			z-index: 2;
-			animation: float-badge 3s ease-in-out infinite;
+			box-shadow: 0 10px 25px rgba(26, 26, 46, 0.06), 0 2px 8px rgba(245, 166, 35, 0.08);
+			transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+			cursor: default;
+			user-select: none;
 		}
 
-		@keyframes float-badge {
-
-			0%,
-			100% {
-				transform: translateY(0);
-			}
-
-			50% {
-				transform: translateY(-8px);
-			}
+		.hero-info-box:hover {
+			transform: translateY(-4px);
+			background: #ffffff;
+			border-color: rgba(245, 166, 35, 0.45);
+			box-shadow: 0 16px 32px rgba(245, 166, 35, 0.22), 0 4px 12px rgba(26, 26, 46, 0.08);
 		}
 
-		.hero-float-badge .badge-icon {
-			width: 34px;
-			height: 34px;
-			border-radius: 10px;
-			background: var(--primary-light);
+		.info-box-icon {
+			width: 36px;
+			height: 36px;
+			border-radius: 11px;
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			font-size: 1rem;
+			flex-shrink: 0;
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
 		}
 
-		.badge-exp {
-			bottom: 30px;
-			left: -28px;
+		.info-box-icon.icon-amber {
+			background: linear-gradient(135deg, #F5A623 0%, #D4891A 100%);
+			color: #ffffff;
 		}
 
-		.badge-tech {
-			top: 50px;
-			right: -18px;
-			animation-delay: 1.2s;
+		.info-box-icon.icon-dark {
+			background: linear-gradient(135deg, #1A1A2E 0%, #2E2E48 100%);
+			color: #F5A623;
+		}
+
+		.info-box-icon.icon-accent {
+			background: linear-gradient(135deg, #FEF7EA 0%, #FDE9C4 100%);
+			color: var(--primary-dark);
+			border: 1px solid rgba(245, 166, 35, 0.3);
+		}
+
+		.info-box-text {
+			display: flex;
+			flex-direction: column;
+			gap: 2px;
+			text-align: left;
+			min-width: 0;
+		}
+
+		.info-box-title {
+			font-size: 0.78rem;
+			font-weight: 800;
+			color: var(--text-dark);
+			display: flex;
+			align-items: center;
+			gap: 5px;
+			line-height: 1.2;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.info-box-sub {
+			font-size: 0.66rem;
+			font-weight: 500;
+			color: var(--text-muted);
+			line-height: 1.2;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		.info-dot-live {
+			width: 6px;
+			height: 6px;
+			background: #10B981;
+			border-radius: 50%;
+			box-shadow: 0 0 6px #10B981;
+			flex-shrink: 0;
 		}
 
 		/* === ABOUT === */
@@ -1357,6 +1532,8 @@
 			.hero-img-wrap {
 				order: -1;
 				justify-content: center;
+				max-width: 440px;
+				padding: 20px 10px;
 			}
 
 			.hero-btns {
@@ -1367,8 +1544,19 @@
 				justify-content: center;
 			}
 
-			.hero-float-badge {
-				display: none;
+			.hero-card-inner {
+				width: 320px;
+				height: 390px;
+			}
+
+			.hero-orbit-ring {
+				width: 380px;
+				height: 380px;
+			}
+
+			.hero-info-row {
+				max-width: 460px;
+				gap: 10px;
 			}
 
 			.about-inner {
@@ -1505,7 +1693,7 @@
 				gap: 12px;
 			}
 
-			.hero-stats > div:last-child {
+			.hero-stats>div:last-child {
 				grid-column: 1 / -1;
 			}
 
@@ -1514,17 +1702,50 @@
 			}
 
 			.hero-img-wrap {
-				width: 100%;
+				max-width: 100%;
+				padding: 8px 4px 0;
 			}
 
-			.hero-img-bg {
-				width: 280px;
-				height: 280px;
+			.hero-card-inner {
+				width: min(290px, 82vw);
+				height: min(350px, 98vw);
 			}
 
-			.hero-img {
-				width: min(280px, 78vw);
-				height: min(340px, 92vw);
+			.hero-orbit-ring {
+				width: 300px;
+				height: 300px;
+			}
+
+			.hero-info-row {
+				grid-template-columns: repeat(3, 1fr);
+				gap: 6px;
+				margin-top: 16px;
+				max-width: 100%;
+			}
+
+			.hero-info-box {
+				padding: 8px 6px;
+				gap: 6px;
+				border-radius: 12px;
+			}
+
+			.info-box-icon {
+				width: 28px;
+				height: 28px;
+				border-radius: 8px;
+			}
+
+			.info-box-icon svg {
+				width: 14px;
+				height: 14px;
+			}
+
+			.info-box-title {
+				font-size: 0.7rem;
+			}
+
+			.info-box-sub {
+				font-size: 0.58rem;
 			}
 
 			.about-section,
@@ -1600,7 +1821,7 @@
 				grid-template-columns: 1fr;
 			}
 
-			.hero-stats > div:last-child {
+			.hero-stats>div:last-child {
 				grid-column: auto;
 			}
 
@@ -1659,11 +1880,11 @@
 				</div>
 				<div class="hero-stats">
 					<div>
-						<div class="hero-stat-num">4+</div>
-						<div class="hero-stat-label">Projects Delivered</div>
+						<div class="hero-stat-num">5+</div>
+						<div class="hero-stat-label">Projects Developed</div>
 					</div>
 					<div>
-						<div class="hero-stat-num">2+</div>
+						<div class="hero-stat-num">3+</div>
 						<div class="hero-stat-label">Client Projects</div>
 					</div>
 					<div>
@@ -1672,20 +1893,68 @@
 					</div>
 				</div>
 			</div>
-			<div class="hero-img-wrap" data-aos="fade-left" data-aos-duration="750" data-aos-delay="100">
-				<div class="hero-img-bg"></div>
-				<img src="images/m2.jpg" alt="Sanket Zagade - Full Stack Developer" class="hero-img">
-				<div class="hero-float-badge badge-exp">
-					<div class="badge-icon">&#128188;</div>
-					<div>
-						<div style="font-size:0.92rem;font-weight:800;color:var(--primary);">Full Stack</div>
-						<div style="font-size:0.7rem;color:var(--text-muted);font-weight:500;">Java &middot; React
-							&middot; MongoDB</div>
+			<div class="hero-img-wrap" data-aos="fade-left" data-aos-duration="850" data-aos-delay="100">
+				<!-- Ambient glowing backdrops & decorative atmosphere -->
+				<div class="hero-ambient-glow glow-1"></div>
+				<div class="hero-ambient-glow glow-2"></div>
+				<div class="hero-orbit-ring">
+					<span class="orbit-satellite"></span>
+				</div>
+				<div class="hero-decor-dots" aria-hidden="true"></div>
+
+				<!-- Main Premium Geometric Portrait Card -->
+				<div class="hero-card-frame">
+					<div class="hero-card-inner">
+						<img src="images/212.png" alt="Sanket Zagade - Java Full Stack Developer" class="hero-card-img">
 					</div>
 				</div>
-				<div class="hero-float-badge badge-tech">
-					<div class="badge-icon">&#9889;</div>
-					<div style="font-size:0.8rem;">JAVA &middot; Spring Boot &middot; Deployment</div>
+
+				<!-- 3 Info Boxes in a Single Row Downside of Image Section -->
+				<div class="hero-info-row">
+					<div class="hero-info-box">
+						<div class="info-box-icon icon-accent">
+							<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+								stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+								<path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+								<path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+							</svg>
+						</div>
+						<div class="info-box-text">
+							<div class="info-box-title">MCA Postgrad</div>
+							<div class="info-box-sub">8.17 &middot; VIIT Pune</div>
+						</div>
+					</div>
+
+					<div class="hero-info-box">
+						<div class="info-box-icon icon-amber">
+							<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+								stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+								<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+							</svg>
+						</div>
+						<div class="info-box-text">
+							<div class="info-box-title">
+								<span>Java &middot; Spring</span>
+								<span class="info-dot-live" title="Active"></span>
+							</div>
+							<div class="info-box-sub">REST APIs &middot; Cloud</div>
+						</div>
+					</div>
+
+					<div class="hero-info-box">
+						<div class="info-box-icon icon-dark">
+							<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+								stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+								<polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+								<polyline points="2 17 12 22 22 17"></polyline>
+								<polyline points="2 12 12 17 22 12"></polyline>
+							</svg>
+						</div>
+						<div class="info-box-text">
+							<div class="info-box-title">Full Stack Dev</div>
+							<div class="info-box-sub">React &middot; MongoDB</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -1696,7 +1965,7 @@
 		<div class="about-inner">
 			<div class="about-img-wrap" data-aos="fade-right" data-aos-duration="700">
 				<div class="about-img-box">
-					<img src="images/212.png" alt="Sanket Zagade">
+					<img src="images/111.png" alt="Sanket Zagade">
 				</div>
 				<div class="about-img-card">
 					<div class="num">8.17</div>
