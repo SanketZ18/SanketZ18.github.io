@@ -409,6 +409,7 @@
 			line-height: 1.8;
 			margin-bottom: 32px;
 			max-width: 500px;
+			text-align: justify;
 		}
 
 		.hero-btns {
@@ -721,7 +722,7 @@
 			box-sizing: border-box;
 			margin: 0 auto;
 			display: grid;
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: 0.8fr 1.2fr;
 			gap: 60px;
 			align-items: start;
 		}
@@ -796,6 +797,11 @@
 			font-weight: 500;
 			opacity: 0.9;
 			margin-top: 4px;
+		}
+
+		.about-content .section-sub {
+			max-width: 100%;
+			text-align: justify;
 		}
 
 		.about-info-grid {
@@ -2336,7 +2342,7 @@
 				<div class="hero-role">
 					<span id="typing-text">Software Developer</span>
 					<span class="sep">&middot;</span>
-					<span>MCA Postgraduate</span>
+					<span>Transforming ideas into innovative digital experiences.</span>
 				</div>
 				<p class="hero-desc">Java Full Stack Developer experienced in building scalable web applications using
 					Java, Spring Boot, React, and MongoDB. Strong in data structures, OOP, backend performance, and
@@ -2448,7 +2454,7 @@
 			</div>
 			<div class="about-content" data-aos="fade-left" data-aos-duration="700" data-aos-delay="100">
 				<div class="section-tag">About Me</div>
-				<div class="section-divider"></div>
+				<!--<div class="section-divider"></div>-->
 				<h2 class="section-title">I Build Scalable Full-Stack Solutions</h2>
 				<p class="section-sub">I'm a Java Full Stack Developer experienced in building scalable web applications
 					using Java, Spring
@@ -2496,7 +2502,7 @@
 			<div class="skills-header">
 				<div data-aos="fade-right">
 					<div class="section-tag">Technical Skills</div>
-					<div class="section-divider"></div>
+					<!--<div class="section-divider"></div>-->
 					<h2 class="section-title">My Detailed Skill Stack</h2>
 				</div>
 				<p class="section-sub" data-aos="fade-left" style="padding-top:8px;">A detailed breakdown of the tools,
@@ -2614,7 +2620,7 @@
 		<div class="resume-inner">
 			<div data-aos="fade-up">
 				<div class="section-tag">Resume</div>
-				<div class="section-divider"></div>
+				<!--<div class="section-divider"></div>-->
 				<h2 class="section-title">Professional Experience</h2>
 				<p class="section-sub">Work history extracted from the resume and expanded so the role reads clearly on
 					the portfolio.</p>
@@ -2656,7 +2662,7 @@
 		<div class="resume-inner">
 			<div data-aos="fade-up">
 				<div class="section-tag">Academic Background</div>
-				<div class="section-divider"></div>
+				<!--<div class="section-divider"></div>-->
 				<h2 class="section-title">Education</h2>
 				<p class="section-sub">Detailed education history from the resume, shown separately from the experience
 					section as requested.</p>
@@ -2719,7 +2725,7 @@
 		<div class="certifications-inner">
 			<div data-aos="fade-up">
 				<div class="section-tag">Credentials</div>
-				<div class="section-divider"></div>
+				<!--<div class="section-divider"></div>-->
 				<h2 class="section-title">Certifications</h2>
 				<p class="section-sub">Additional learning and certifications listed in the resume.</p>
 			</div>
@@ -2758,7 +2764,7 @@
 		<div class="projects-inner">
 			<div data-aos="fade-up">
 				<div class="section-tag">Client Work</div>
-				<div class="section-divider"></div>
+				<!--<div class="section-divider"></div>-->
 				<h2 class="section-title">Freelancing Projects</h2>
 				<p class="section-sub">Production-ready client websites with responsive layouts, modern UI polish, and
 					live deployments.</p>
@@ -2834,7 +2840,7 @@
 		<div class="projects-inner">
 			<div data-aos="fade-up">
 				<div class="section-tag">Academic Work</div>
-				<div class="section-divider"></div>
+				<!--<div class="section-divider"></div>-->
 				<h2 class="section-title">Academic &amp; Full-Stack Projects</h2>
 				<p class="section-sub">Advanced full-stack systems developed during academic research and technical
 					domain studies at VIIT, Baramati.</p>
@@ -3041,21 +3047,23 @@
 
 		// Typing animation
 		var typingEl = document.getElementById('typing-text');
-		var roles = ['Software Developer', 'Java Full Stack Developer', 'React Developer', 'MCA Postgraduate'];
-		var roleIdx = 0, charIdx = 0, isDeleting = false;
-		function typeRole() {
-			var current = roles[roleIdx];
-			if (isDeleting) {
-				typingEl.textContent = current.slice(0, charIdx--);
-				if (charIdx < 0) { isDeleting = false; roleIdx = (roleIdx + 1) % roles.length; setTimeout(typeRole, 400); return; }
-				setTimeout(typeRole, 55);
-			} else {
-				typingEl.textContent = current.slice(0, charIdx++);
-				if (charIdx > current.length) { isDeleting = true; setTimeout(typeRole, 1800); return; }
-				setTimeout(typeRole, 100);
+		if (typingEl) {
+			var roles = ['Software Developer', 'Java Full Stack Developer', 'React Developer', 'MCA Postgraduate'];
+			var roleIdx = 0, charIdx = 0, isDeleting = false;
+			function typeRole() {
+				var current = roles[roleIdx];
+				if (isDeleting) {
+					typingEl.textContent = current.slice(0, charIdx--);
+					if (charIdx < 0) { isDeleting = false; roleIdx = (roleIdx + 1) % roles.length; setTimeout(typeRole, 400); return; }
+					setTimeout(typeRole, 55);
+				} else {
+					typingEl.textContent = current.slice(0, charIdx++);
+					if (charIdx > current.length) { isDeleting = true; setTimeout(typeRole, 1800); return; }
+					setTimeout(typeRole, 100);
+				}
 			}
+			typeRole();
 		}
-		typeRole();
 
 		// Smooth scroll
 		document.querySelectorAll('a[href^="#"]').forEach(function (a) {
