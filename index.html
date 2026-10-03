@@ -728,6 +728,13 @@
 
 		.about-img-wrap {
 			position: relative;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.about-img-holder {
+			position: relative;
+			width: 100%;
 		}
 
 		.about-img-box {
@@ -741,6 +748,14 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+		}
+
+		.about-btn-wrap {
+			margin-top: 36px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
 		}
 
 		.about-img-box img {
@@ -788,7 +803,7 @@
 			grid-template-columns: 1fr 1fr;
 			gap: 14px;
 			margin-top: 28px;
-			margin-bottom: 32px;
+			margin-bottom: 0;
 		}
 
 		.about-info-item {
@@ -2416,12 +2431,19 @@
 	<section id="about" class="about-section">
 		<div class="about-inner">
 			<div class="about-img-wrap" data-aos="fade-right" data-aos-duration="700">
-				<div class="about-img-box">
-					<img src="images/111.png" alt="Sanket Zagade">
+				<div class="about-img-holder">
+					<div class="about-img-box">
+						<img src="images/111.png" alt="Sanket Zagade">
+					</div>
+					<div class="about-img-card">
+						<div class="num">8.17</div>
+						<div class="lbl">MCA CGPA</div>
+					</div>
 				</div>
-				<div class="about-img-card">
-					<div class="num">8.17</div>
-					<div class="lbl">MCA CGPA</div>
+				<div class="about-btn-wrap">
+					<a href="https://drive.google.com/file/d/1TVi1ccCQvR-LDUED5P-eXdQRQdBgmlHD/view?usp=sharing"
+						target="_blank" rel="noopener noreferrer" class="btn-solid" style="width:fit-content;">Download
+						Resume</a>
 				</div>
 			</div>
 			<div class="about-content" data-aos="fade-left" data-aos-duration="700" data-aos-delay="100">
@@ -2464,9 +2486,6 @@
 						<div class="val">DSA, OOP, REST APIs, Git/GitHub</div>
 					</div>
 				</div>
-				<a href="https://drive.google.com/file/d/1TVi1ccCQvR-LDUED5P-eXdQRQdBgmlHD/view?usp=sharing"
-					target="_blank" rel="noopener noreferrer" class="btn-solid" style="width:fit-content;">Download
-					Resume</a>
 			</div>
 		</div>
 	</section>
