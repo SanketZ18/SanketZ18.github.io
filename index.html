@@ -7,6 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description"
 		content="Sanket Zagade - Full Stack Developer and MCA Postgraduate. Java, Spring Boot, React, MongoDB specialist based in Baramati, Pune.">
+	<link rel="icon" type="image/png" href="images/Logo.png">
+	<link rel="apple-touch-icon" href="images/Logo.png">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link
@@ -107,12 +109,22 @@
 		}
 
 		.nav-brand {
+			display: inline-flex;
+			align-items: center;
+			gap: 10px;
 			font-family: 'Playfair Display', serif;
 			font-size: 1.5rem;
 			font-weight: 800;
 			color: var(--accent);
 			text-decoration: none;
 			letter-spacing: -0.5px;
+		}
+
+		.nav-brand-logo {
+			width: 48px;
+			height: 48px;
+			object-fit: contain;
+			flex-shrink: 0;
 		}
 
 		.nav-brand span {
@@ -1981,8 +1993,14 @@
 			}
 
 			.nav-brand {
+				gap: 8px;
 				font-size: 1.15rem;
 				flex-shrink: 0;
+			}
+
+			.nav-brand-logo {
+				width: 42px;
+				height: 42px;
 			}
 
 			.nav-links {
@@ -2319,7 +2337,8 @@
 
 	<!-- NAVBAR -->
 	<nav class="site-navbar" id="site-navbar">
-		<a class="nav-brand" href="#home">Sanket<span> Zagade</span></a>
+		<a class="nav-brand" href="#home"><img class="nav-brand-logo" src="images/Logo.png" alt="">Sanket<span>
+				Zagade</span></a>
 		<ul class="nav-links">
 			<li><a href="#home">Home</a></li>
 			<li><a href="#about">About</a></li>
